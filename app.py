@@ -1,9 +1,9 @@
-# app.py - BakeStory Streamlit App
+# app.py - BakeStory Streamlit App with standardized images and pastel cake icon
 
 import streamlit as st
 
 # --- PAGE CONFIGURATION ---
-st.set_page_config(page_title="BakeStory 🍰", layout="wide", page_icon="🍰")
+st.set_page_config(page_title="BakeStory 🍰", layout="wide", page_icon="https://i.imgur.com/6o7JqzQ.png")  # full cake icon
 
 # --- CUSTOM CSS FOR PASTEL THEME ---
 st.markdown("""
@@ -61,7 +61,8 @@ if selected_tab == "Home":
     cols = st.columns(3)
     for i, dish in enumerate(dishes):
         with cols[i % 3]:
-            st.image(dish["img"], use_column_width=True)
+            # Standardize all images to 300x300px
+            st.image(dish["img"], width=300)
             st.markdown(f"**{dish['name']}**")
             st.caption(dish["desc"])
 
@@ -72,7 +73,7 @@ elif selected_tab == "Products":
     cols = st.columns(3)
     for i, dish in enumerate(dishes):
         with cols[i % 3]:
-            st.image(dish["img"], use_column_width=True)
+            st.image(dish["img"], width=300)
             st.markdown(f"**{dish['name']}**")
 
 # --- ORDERS TAB ---
